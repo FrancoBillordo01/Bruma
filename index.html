@@ -2,11 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
+
   <meta
-  name="viewport"
-  content="width=device-width, initial-scale=1, viewport-fit=cover"
-    >
-  <meta name="theme-color" content="#173d35">
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <meta name="theme-color" content="#274e3e">
 
   <title>Bruma · Tu pequeño mundo mágico</title>
 
@@ -14,460 +16,484 @@
 </head>
 
 <body>
-  <header>
-    <a class="brand" href="./">
-      <span>✧</span> bruma<span class="dot">.</span>
-    </a>
-
+  <header class="site-header">
+    <a class="brand" href="./">✧ bruma.</a>
     <span class="tag">UN PEQUEÑO MUNDO MÁGICO</span>
-
-    <button type="button" id="sound">Sonido: apagado</button>
   </header>
 
   <main>
     <section class="intro">
-      <div>
-        <div class="eyebrow">TU COMPAÑERO DE AVENTURAS</div>
+      <div class="eyebrow">TU COMPAÑERO DE AVENTURAS</div>
 
-        <h1>
-          Un poquito de magia.<br>
-          Un nuevo mejor amigo.
-        </h1>
+      <h1>
+        Un poquito de magia.<br>
+        Un nuevo mejor amigo.
+      </h1>
 
-        <p>Cuidalo, jugá y mirá cómo crece su mundo.</p>
-      </div>
-
-      <div class="wallet">
-        ✦ <strong id="coins">0</strong>
-        <span>polvo de estrellas</span>
-      </div>
+      <p>Cuidalo, jugá y mirá cómo crece su mundo.</p>
     </section>
 
-    <!-- Clima real -->
-<section class="weather-bar" aria-label="Clima del escenario">
-  <div class="weather-location">
-    <label for="weather-city">El mundo de Milo en</label>
+    <section class="pet-heading" aria-label="Tu dragón">
+      <div>
+        <div class="eyebrow">TU PEQUEÑO DRAGÓN</div>
 
-    <select id="weather-city">
-      <option value="buenos-aires">Buenos Aires</option>
-      <option value="cordoba">Córdoba</option>
-      <option value="rosario">Rosario</option>
-      <option value="mendoza">Mendoza</option>
-      <option value="bariloche">Bariloche</option>
-      <option value="madrid">Madrid</option>
-      <option value="mexico">Ciudad de México</option>
-    </select>
-  </div>
-
-  <div class="weather-info" role="status" aria-live="polite">
-    <span id="weather-icon" aria-hidden="true">🌤️</span>
-
-    <div>
-      <strong id="weather-description">Consultando el clima…</strong>
-      <small id="weather-details">Conectando con el cielo de Milo</small>
-    </div>
-  </div>
-
-  <button type="button" id="weather-refresh" aria-label="Actualizar clima">
-    ↻
-  </button>
-
-  <a
-    class="weather-credit"
-    href="https://open-meteo.com/"
-    target="_blank"
-    rel="noopener noreferrer"
-  >
-    Clima: Open-Meteo
-  </a>
-</section>
-
-    <div class="layout">
-      <section
-        class="world"
-        id="world"
-        aria-label="Habitación del dragón"
-      >
-        <div class="scene-top">
-          <span>✧ Claro encantado</span>
-          <button type="button" id="night">☾ Cambiar a noche</button>
-        </div>
-
-        <div class="sun"></div>
-
-        <!-- Nubes y precipitaciones -->
-<div class="weather-clouds" aria-hidden="true">
-  <span></span>
-  <span></span>
-  <span></span>
-</div>
-
-<div id="weather-particles" aria-hidden="true"></div>
-
-        <div class="hill h1"></div>
-        <div class="hill h2"></div>
-
-        <div class="tree t1"></div>
-        <div class="tree t2"></div>
-        <div class="tree t3"></div>
-
-        <span class="spark s1">✧</span>
-        <span class="spark s2">✦</span>
-        <span class="spark s3">✧</span>
-
-        <div
-          class="speech"
-          id="speech"
-          role="status"
-          aria-live="polite"
-        >
-          ¡Hola! ¿Me das una caricia?
-        </div>
-
-        <button
-          type="button"
-          class="dragon"
-          id="dragon"
-          aria-label="Acariciar a tu dragón"
-        >
-          <svg
-            viewBox="0 0 360 330"
-            role="img"
-            aria-label="Dragoncito verde con alas y cuernos"
-          >
-            <defs>
-              <linearGradient id="skin" x2="0" y2="1">
-                <stop stop-color="#b4d89b"/>
-                <stop offset="1" stop-color="#70aa7b"/>
-              </linearGradient>
-            </defs>
-
-            <ellipse
-              cx="183" cy="301" rx="100" ry="17"
-              fill="#294f4230"
-            />
-
-            <g class="body">
-              <!-- Cola -->
-              <path
-                d="M250 249Q335 265 306 204Q347 247 310 280Q284 295 245 276"
-                fill="#75a67b"
-              />
-
-              <!-- Alas -->
-              <path
-                d="M114 190Q48 115 46 207L97 229M245 190Q313 115 313 207L263 229"
-                fill="#92b39c"
-                stroke="#537f6c"
-                stroke-width="5"
-              />
-
-              <path
-                d="M65 181L97 216M294 181L263 216"
-                stroke="#c5d6b1"
-                stroke-width="4"
-              />
-
-              <!-- Cuerpo -->
-              <ellipse
-                cx="182" cy="234" rx="81" ry="66"
-                fill="url(#skin)"
-              />
-
-              <ellipse
-                cx="182" cy="248" rx="48" ry="47"
-                fill="#e4e6bc"
-              />
-
-              <!-- Patitas -->
-              <ellipse
-                cx="121" cy="286" rx="31" ry="16"
-                fill="#78a97d"
-              />
-
-              <ellipse
-                cx="244" cy="286" rx="31" ry="16"
-                fill="#78a97d"
-              />
-
-              <!-- Cuernos -->
-              <path
-                d="M111 111Q78 64 104 44L139 91M231 91L263 44Q288 65 256 113"
-                fill="#e7d5a7"
-              />
-
-              <path d="M167 89L181 51L198 89" fill="#69936d"/>
-
-              <!-- Cabeza -->
-              <path
-                d="M104 124Q102 77 180 77Q259 77 260 124L270 163Q269 211 182 214Q95 211 94 164Z"
-                fill="url(#skin)"
-              />
-
-              <!-- Mejillas -->
-              <ellipse
-                cx="125" cy="171" rx="17" ry="10"
-                fill="#e7b6a0" opacity=".7"
-              />
-
-              <ellipse
-                cx="239" cy="171" rx="17" ry="10"
-                fill="#e7b6a0" opacity=".7"
-              />
-
-              <!-- Ojos -->
-              <g class="eyes">
-                <ellipse
-                  cx="139" cy="145" rx="11" ry="16"
-                  fill="#233f37"
-                />
-
-                <ellipse
-                  cx="224" cy="145" rx="11" ry="16"
-                  fill="#233f37"
-                />
-
-                <circle cx="142" cy="140" r="4" fill="white"/>
-                <circle cx="227" cy="140" r="4" fill="white"/>
-              </g>
-
-              <!-- Sonrisa -->
-              <path
-                d="M166 177Q182 193 199 177"
-                fill="none"
-                stroke="#365b45"
-                stroke-width="5"
-                stroke-linecap="round"
-              />
-
-              <circle cx="175" cy="164" r="3" fill="#527d57"/>
-              <circle cx="190" cy="164" r="3" fill="#527d57"/>
-
-              <!-- Brazos -->
-              <path
-                d="M112 229Q132 241 134 225M249 229Q230 241 227 225"
-                fill="none"
-                stroke="#5d906b"
-                stroke-width="12"
-                stroke-linecap="round"
-              />
-              <!-- Mantita sobre el cuerpo -->
-<g id="dragon-blanket" hidden>
-  <path
-    d="M119 217 Q182 240 245 217
-       L253 279 Q182 306 111 279 Z"
-    fill="#c3b2d8"
-    stroke="#9985b3"
-    stroke-width="3"
-    stroke-linejoin="round"
-  />
-
-  <path
-    d="M123 230 Q182 250 241 230
-       M119 248 Q182 268 245 248
-       M116 267 Q182 287 248 267"
-    fill="none"
-    stroke="#e5daef"
-    stroke-width="5"
-    stroke-linecap="round"
-  />
-
-  <path
-    d="M143 233 L139 283
-       M181 240 L181 289
-       M220 233 L224 283"
-    fill="none"
-    stroke="#ac98c5"
-    stroke-width="3"
-  />
-
-  <path
-    d="M174 259 Q166 250 170 246
-       Q176 241 181 248
-       Q186 241 192 246
-       Q196 250 188 259
-       L181 266 Z"
-    fill="#fff0d6"
-  />
-</g>
-            </g>
-          </svg>
-        </button>
-
-        <div id="particles"></div>
-
-        <!-- Baño interactivo -->
-<div id="bath" class="bath" hidden>
-  <div class="bath-panel">
-    <div class="bath-heading">
-      <strong>¡Hora del baño! 🫧</strong>
-
-      <button
-        type="button"
-        id="close-bath"
-        aria-label="Salir del baño"
-      >✕</button>
-    </div>
-
-    <p>Mantené presionado y frotá a Milo con la esponja.</p>
-
-    <div
-      id="bath-progress"
-      class="bath-progress"
-      role="progressbar"
-      aria-label="Progreso del baño"
-      aria-valuemin="0"
-      aria-valuemax="100"
-      aria-valuenow="0"
-    >
-      <div id="bath-fill"></div>
-    </div>
-  </div>
-
-  <div id="bath-foam" aria-hidden="true"></div>
-  <div id="bath-sponge" class="bath-sponge" aria-hidden="true">🧽</div>
-</div>
-
-        <div id="game" hidden>
-          <p>
-            ¡Atrapá las estrellas!
-            <strong id="timer">15</strong>s
-          </p>
+        <h2>
+          <span id="petname">Milo</span>
 
           <button
             type="button"
-            id="star"
-            aria-label="Atrapar estrella"
-          >✦</button>
-        </div>
+            id="rename"
+            aria-label="Cambiar nombre"
+          >✎</button>
 
-        <div class="scene-bottom">
-          <span>● <span id="mood">Feliz de verte</span></span>
-          <span>Tocá a tu dragón para acariciarlo ♡</span>
-        </div>
-      </section>
+          <button
+          type="button"
+          id="open-appearance"
+          aria-label="Personalizar mascota"
+          title="Personalizar mascota"
+        >🎨</button>
+        </h2>
+      </div>
 
-      <aside>
-        <div class="pet-heading">
-          <div>
-            <div class="eyebrow">TU PEQUEÑO DRAGÓN</div>
+      <span class="level">
+        Nivel <b id="level">1</b>
+      </span>
+    </section>
 
-            <h2>
-              <span id="petname">Milo</span>
-
-              <button
-                type="button"
-                id="rename"
-                aria-label="Cambiar nombre"
-              >✎</button>
-            </h2>
-          </div>
-
-          <span class="level">Nivel <b id="level">1</b></span>
-        </div>
-
-        <p class="personality">
-          Curioso, un poco dormilón y fan de las bayas.
-        </p>
-
-        <div class="stats" id="stats"></div>
-
-        <div class="care-label">UN POQUITO DE CARIÑO</div>
-
- <div class="game-controls">
-  <div class="actions">
-    <div class="feed-item">
-      <button
-        type="button"
-        id="feed-picker"
-        class="feed-picker"
-        data-action="feed"
-        aria-label="Abrir inventario de comida"
-        aria-haspopup="dialog"
-        aria-controls="inventory-dialog"
-        title="Tocá para elegir; arrastrá para alimentar"
-      >
-        <span id="feed-icon" aria-hidden="true">🍓</span>
-      </button>
-
-      <button
-        type="button"
-        class="care-button feed-use"
-        data-action="feed"
-      >
-        <b>Alimentar</b>
-        <small id="feed-description">Fresa</small>
-        <span id="feed-count" class="item-count">0</span>
-      </button>
+    <div class="wallet">
+      <span aria-hidden="true">✦</span>
+      <strong id="coins">0</strong>
+      <small>polvo de estrellas</small>
     </div>
 
     <button
       type="button"
-      class="care-button"
-      data-action="play"
-    >
-      <span class="action-icon">✦</span>
-      <b>Jugar</b>
-      <small>Atrapar estrellas</small>
-    </button>
+      id="sound"
+      aria-label="Activar sonido"
+      aria-pressed="false"
+      title="Activar sonido"
+    >♫</button>
 
-    <button
-      type="button"
-      class="care-button"
-      data-action="sleep"
-    >
-      <span class="action-icon">☾</span>
-      <b id="sleep-label">Dormir</b>
-      <small>Recargar energía</small>
-    </button>
+    <section class="xp-panel" aria-label="Experiencia">
+      <div class="xp-labels">
+        <span id="xp-text">0 / 100 XP</span>
+        <span id="xp-next">Nivel 2</span>
+      </div>
 
-    <button
-      type="button"
-      class="care-button"
-      data-action="wash"
-    >
-      <span class="action-icon">♧</span>
-      <b>Bañar</b>
-      <small>Un chapuzón mágico</small>
-    </button>
-  </div>
+      <div
+        id="xp-track"
+        class="xp-track"
+        role="progressbar"
+        aria-label="Experiencia para el siguiente nivel"
+        aria-valuemin="0"
+        aria-valuemax="100"
+        aria-valuenow="0"
+      >
+        <div id="xp-fill"></div>
+      </div>
+    </section>
 
-  <button
-    type="button"
-    id="blanket-action"
-    class="care-button"
-    data-action="blanket"
-    aria-label="Poner o quitar la mantita"
-    hidden
-  >
-    <span class="action-icon">🧣</span>
-    <b>Abrigar</b>
-    <small>Su mantita favorita</small>
-  </button>
+    <section class="weather-bar" aria-label="Clima">
+      <div class="weather-location">
+        <label for="weather-city">Tu pequeño mundo en</label>
 
-  <button type="button" id="open-shop" class="shop-button">
-    <span aria-hidden="true">🛒</span>
+        <select id="weather-city">
+          <option value="buenos-aires">Buenos Aires</option>
+          <option value="cordoba">Córdoba</option>
+          <option value="rosario">Rosario</option>
+          <option value="mendoza">Mendoza</option>
+          <option value="bariloche">Bariloche</option>
+          <option value="madrid">Madrid</option>
+          <option value="mexico">Ciudad de México</option>
+        </select>
+      </div>
 
-    <span>
-      <b>Tienda</b>
-      <small>Comprá provisiones con tus estrellas</small>
-    </span>
+      <div class="weather-info" role="status" aria-live="polite">
+        <span id="weather-icon" aria-hidden="true">🌤️</span>
 
-    <span id="inventory-count" class="inventory-count">
-      0 items
-    </span>
-  </button>
+        <div>
+          <strong id="weather-description">Consultando el clima…</strong>
+          <small id="weather-details">Conectando con el cielo</small>
+        </div>
+      </div>
+
+      <button
+        type="button"
+        id="weather-refresh"
+        aria-label="Actualizar clima"
+      >↻</button>
+
+      <a
+        class="weather-credit"
+        href="https://open-meteo.com/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >Clima: Open-Meteo</a>
+    </section>
+
+    <section id="world" class="world" aria-label="El mundo de tu dragón">
+
+      <!-- Paisaje original de BRUMA -->
+<div class="original-landscape" aria-hidden="true">
+  <div class="original-sun"></div>
+
+  <div class="original-cloud cloud-one"></div>
+  <div class="original-cloud cloud-two"></div>
+  <div class="original-cloud cloud-three"></div>
+
+  <div class="original-hill hill-back"></div>
+  <div class="original-hill hill-front"></div>
+
+  <div class="original-tree tree-one"></div>
+  <div class="original-tree tree-two"></div>
+  <div class="original-tree tree-three"></div>
+
+  <span class="original-spark spark-one">✧</span>
+  <span class="original-spark spark-two">✦</span>
+  <span class="original-spark spark-three">✧</span>
 </div>
 
-        <div class="tip">
-          <span>♡</span>
+      <div class="scene-top">
+        <span>✧ Claro encantado</span>
 
-          <p>
-            <b>Las pequeñas cosas cuentan.</b><br>
-            Pasar tiempo juntos hace crecer su magia.
-          </p>
+        <button type="button" id="night">
+          ☾ Cambiar a noche
+        </button>
+      </div>
+
+      <div
+        id="speech"
+        class="speech"
+        role="status"
+        aria-live="polite"
+      >¡Hola! ¿Me das una caricia?</div>
+
+      <div id="weather-particles" aria-hidden="true"></div>
+
+      <button
+  type="button"
+  class="dragon"
+  id="dragon"
+  aria-label="Acariciar a tu dragón"
+>
+  <span class="honey-character">
+    <svg
+      id="honey-image"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 360 330"
+      role="img"
+      aria-label="Dragoncito verde con alas y cuernos"
+    >
+      <defs>
+        <linearGradient id="skin" x1="0" y1="0" x2="0" y2="1">
+          <stop stop-color="#b4d89b"/>
+          <stop offset="1" stop-color="#70aa7b"/>
+        </linearGradient>
+      </defs>
+
+      <!-- Sombra -->
+      <ellipse
+        cx="183" cy="301" rx="100" ry="17"
+        fill="#294f42" opacity=".19"
+      />
+
+      <g class="body">
+        <!-- Cola -->
+        <path
+          d="M250 249Q335 265 306 204Q347 247 310 280Q284 295 245 276"
+          fill="#75a67b"
+        />
+
+        <!-- Alas -->
+        <path
+          d="M114 190Q48 115 46 207L97 229M245 190Q313 115 313 207L263 229"
+          fill="#92b39c"
+          stroke="#537f6c"
+          stroke-width="5"
+        />
+
+        <path
+          d="M65 181L97 216M294 181L263 216"
+          fill="none"
+          stroke="#c5d6b1"
+          stroke-width="4"
+        />
+
+        <!-- Cuerpo y pancita -->
+        <ellipse
+          cx="182" cy="234" rx="81" ry="66"
+          fill="url(#skin)"
+        />
+
+        <ellipse
+          cx="182" cy="248" rx="48" ry="47"
+          fill="#e4e6bc"
+        />
+
+        <!-- Patitas -->
+        <ellipse
+          cx="121" cy="286" rx="31" ry="16"
+          fill="#78a97d"
+        />
+
+        <ellipse
+          cx="244" cy="286" rx="31" ry="16"
+          fill="#78a97d"
+        />
+
+        <!-- Cuernos y cresta -->
+        <path
+          d="M111 111Q78 64 104 44L139 91M231 91L263 44Q288 65 256 113"
+          fill="#e7d5a7"
+        />
+
+        <path
+          d="M167 89L181 51L198 89"
+          fill="#69936d"
+        />
+
+        <!-- Cabeza -->
+        <path
+          d="M104 124Q102 77 180 77Q259 77 260 124L270 163Q269 211 182 214Q95 211 94 164Z"
+          fill="url(#skin)"
+        />
+
+        <!-- Mejillas -->
+        <ellipse
+          cx="125" cy="171" rx="17" ry="10"
+          fill="#e7b6a0" opacity=".7"
+        />
+
+        <ellipse
+          cx="239" cy="171" rx="17" ry="10"
+          fill="#e7b6a0" opacity=".7"
+        />
+
+        <!-- Ojos abiertos -->
+        <g class="eyes">
+          <ellipse
+            cx="139" cy="145" rx="11" ry="16"
+            fill="#233f37"
+          />
+
+          <ellipse
+            cx="224" cy="145" rx="11" ry="16"
+            fill="#233f37"
+          />
+
+          <circle cx="142" cy="140" r="4" fill="white"/>
+          <circle cx="227" cy="140" r="4" fill="white"/>
+        </g>
+
+        <!-- Ojos al dormir -->
+        <g class="original-sleep-eyes" style="display: none">
+          <path
+            d="M128 147Q139 157 150 147M213 147Q224 157 235 147"
+            fill="none"
+            stroke="#233f37"
+            stroke-width="5"
+            stroke-linecap="round"
+          />
+        </g>
+
+        <!-- Sonrisa y nariz -->
+        <path
+          d="M166 177Q182 193 199 177"
+          fill="none"
+          stroke="#365b45"
+          stroke-width="5"
+          stroke-linecap="round"
+        />
+
+        <circle cx="175" cy="164" r="3" fill="#527d57"/>
+        <circle cx="190" cy="164" r="3" fill="#527d57"/>
+
+        <!-- Brazos -->
+        <path
+          d="M112 229Q132 241 134 225M249 229Q230 241 227 225"
+          fill="none"
+          stroke="#5d906b"
+          stroke-width="12"
+          stroke-linecap="round"
+        />
+
+        <!-- Mantita -->
+        <g id="dragon-blanket" style="display: none">
+          <path
+            d="M119 217Q182 240 245 217L253 279Q182 306 111 279Z"
+            fill="#c3b2d8"
+            stroke="#9985b3"
+            stroke-width="3"
+            stroke-linejoin="round"
+          />
+
+          <path
+            d="M123 230Q182 250 241 230M119 248Q182 268 245 248M116 267Q182 287 248 267"
+            fill="none"
+            stroke="#e5daef"
+            stroke-width="5"
+            stroke-linecap="round"
+          />
+
+          <path
+            d="M143 233L139 283M181 240L181 289M220 233L224 283"
+            fill="none"
+            stroke="#ac98c5"
+            stroke-width="3"
+          />
+
+          <path
+            d="M174 259Q166 250 170 246Q176 241 181 248Q186 241 192 246Q196 250 188 259L181 266Z"
+            fill="#fff0d6"
+          />
+        </g>
+      </g>
+    </svg>
+
+    <span class="honey-sleep-sign" aria-hidden="true">Zzz…</span>
+  </span>
+</button>
+
+      <div id="particles" aria-hidden="true"></div>
+
+      <div
+        id="level-toast"
+        class="level-toast"
+        role="status"
+        aria-live="polite"
+        hidden
+      >
+        <span aria-hidden="true">✨</span>
+
+        <div>
+          <strong id="level-toast-title">¡Nivel 2!</strong>
+          <small>Tu pequeño dragón sigue creciendo.</small>
         </div>
-      </aside>
+      </div>
+
+      <div id="bath" class="bath" hidden>
+        <div class="bath-panel">
+          <div class="bath-heading">
+            <strong>¡Hora del baño! 🫧</strong>
+
+            <button
+              type="button"
+              id="close-bath"
+              class="dialog-close"
+              aria-label="Salir del baño"
+            >✕</button>
+          </div>
+
+          <p>Mantené presionado y frotá con la esponja.</p>
+
+          <div
+            id="bath-progress"
+            class="bath-progress"
+            role="progressbar"
+            aria-label="Progreso del baño"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+          >
+            <div id="bath-fill"></div>
+          </div>
+        </div>
+
+        <div id="bath-foam" aria-hidden="true"></div>
+        <div id="bath-sponge" aria-hidden="true">🧽</div>
+      </div>
+
+      <div id="game" hidden>
+        <p>
+          ¡Atrapá las estrellas!
+          <strong id="timer">15</strong>s
+        </p>
+
+        <button
+          type="button"
+          id="star"
+          aria-label="Atrapar estrella"
+        >✦</button>
+      </div>
+
+      <div class="scene-bottom">
+        <span id="mood">Feliz de verte</span>
+        <span id="blanket-status" hidden>🧣 Mantita puesta</span>
+      </div>
+    </section>
+
+    <div id="stats" class="stats"></div>
+
+    <div class="game-controls">
+      <div class="feed-item">
+        <button
+          type="button"
+          id="feed-picker"
+          data-action="feed"
+          aria-label="Abrir inventario"
+          aria-haspopup="dialog"
+          aria-controls="inventory-dialog"
+        >
+          <span id="feed-icon" aria-hidden="true">🍓</span>
+        </button>
+
+        <button
+          type="button"
+          class="care-button feed-use"
+          data-action="feed"
+        >
+          <b>Alimentar</b>
+          <small id="feed-description">Fresa</small>
+          <span id="feed-count" class="item-count">0</span>
+        </button>
+      </div>
+
+      <button type="button" class="care-button" data-action="play">
+        <span class="action-icon" aria-hidden="true">✦</span>
+        <b>Jugar</b>
+        <small>Elegí un minijuego</small>
+      </button>
+
+      <button type="button" class="care-button" data-action="sleep">
+        <span class="action-icon" aria-hidden="true">☾</span>
+        <b id="sleep-label">Dormir</b>
+        <small>Recargar energía</small>
+      </button>
+
+      <button type="button" class="care-button" data-action="wash">
+        <span class="action-icon" aria-hidden="true">🧽</span>
+        <b>Bañar</b>
+        <small>Un chapuzón mágico</small>
+      </button>
+
+      <button
+        type="button"
+        id="blanket-action"
+        class="care-button"
+        data-action="blanket"
+        aria-pressed="false"
+        hidden
+      >
+        <span class="action-icon" aria-hidden="true">🧣</span>
+        <b>Abrigar</b>
+        <small>Su mantita favorita</small>
+      </button>
+
+      <button type="button" id="open-shop" class="shop-button">
+        <span class="action-icon" aria-hidden="true">🛒</span>
+
+        <span>
+          <b>Tienda</b>
+          <small>Comprá provisiones con tus estrellas</small>
+        </span>
+
+        <span id="inventory-count" class="inventory-count">0 items</span>
+      </button>
+    </div>
+
+    <div class="tip">
+      ♡ Las pequeñas cosas cuentan.
+      Pasar tiempo juntos hace crecer su magia.
     </div>
 
     <footer>
@@ -476,15 +502,15 @@
     </footer>
   </main>
 
-  <!-- Cambiar nombre -->
   <dialog id="name-dialog" aria-labelledby="name-title">
-    <form method="dialog" class="name-form">
+    <form method="dialog">
       <h2 id="name-title">¿Cómo se llama tu dragón?</h2>
 
       <input
         id="name-input"
         maxlength="18"
         required
+        autocomplete="off"
         aria-label="Nombre del dragón"
       >
 
@@ -498,25 +524,15 @@
     </form>
   </dialog>
 
-  <!-- Tienda -->
-  <dialog
-    id="food-dialog"
-    class="food-shop"
-    aria-labelledby="shop-title"
-  >
+  <dialog id="food-dialog" class="food-shop" aria-labelledby="shop-title">
     <div class="shop-heading">
       <div>
         <div class="eyebrow">ALMACÉN DEL BOSQUE</div>
         <h2 id="shop-title">¿Qué compramos hoy?</h2>
       </div>
 
-      <form method="dialog" class="close-form">
-        <button
-          type="submit"
-          id="close-food"
-          class="dialog-close"
-          aria-label="Cerrar tienda"
-        >✕</button>
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Cerrar tienda">✕</button>
       </form>
     </div>
 
@@ -529,15 +545,9 @@
     </div>
 
     <div id="food-list" class="food-list"></div>
-
-    <p
-      id="food-message"
-      class="food-message"
-      role="status"
-    ></p>
+    <p id="food-message" class="food-message" role="status"></p>
   </dialog>
 
-  <!-- Inventario -->
   <dialog
     id="inventory-dialog"
     class="food-shop"
@@ -549,109 +559,110 @@
         <h2 id="inventory-title">Inventario</h2>
       </div>
 
-      <form method="dialog" class="close-form">
-        <button
-          type="submit"
-          class="dialog-close"
-          aria-label="Cerrar inventario"
-        >✕</button>
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Cerrar inventario">✕</button>
       </form>
     </div>
 
-    <p class="shop-description">
-      Elegí qué comida querés darle a tu dragón.
-    </p>
-
+    <p class="shop-description">Elegí una comida o equipá tu mantita.</p>
     <div id="inventory-list" class="food-list"></div>
-
-    <p
-      id="inventory-message"
-      class="food-message"
-      role="status"
-    ></p>
+    <p id="inventory-message" class="food-message" role="status"></p>
   </dialog>
 
-  <!-- Menú de juegos -->
-<dialog id="games-dialog" class="food-shop" aria-labelledby="games-title">
-  <div class="shop-heading">
-    <div>
-      <div class="eyebrow">UN RATITO DE DIVERSIÓN</div>
-      <h2 id="games-title">¿A qué jugamos?</h2>
-    </div>
-
-    <form method="dialog" class="close-form">
-      <button
-        type="submit"
-        class="dialog-close"
-        aria-label="Cerrar juegos"
-      >✕</button>
-    </form>
-  </div>
-
-  <div class="games-list">
-    <button type="button" id="choose-stars" class="game-choice">
-      <span aria-hidden="true">✨</span>
+  <dialog id="games-dialog" aria-labelledby="games-title">
+    <div class="shop-heading">
       <div>
-        <b>Atrapar estrellas</b>
-        <small>Tocá las estrellas antes de que termine el tiempo.</small>
+        <div class="eyebrow">UN RATITO DE DIVERSIÓN</div>
+        <h2 id="games-title">¿A qué jugamos?</h2>
       </div>
-    </button>
 
-    <button type="button" id="choose-skate" class="game-choice">
-      <span aria-hidden="true">🛹</span>
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Cerrar juegos">✕</button>
+      </form>
+    </div>
+
+    <div class="games-list">
+      <button type="button" id="choose-stars" class="game-choice">
+        <span aria-hidden="true">✨</span>
+        <span>
+          <b>Atrapar estrellas</b>
+          <small>Tenés quince segundos para atraparlas.</small>
+        </span>
+      </button>
+
+      <button type="button" id="choose-skate" class="game-choice">
+        <span aria-hidden="true">🛹</span>
+        <span>
+          <b>Honey Skate</b>
+          <small>Saltá obstáculos y recogé estrellas.</small>
+        </span>
+      </button>
+    </div>
+  </dialog>
+
+  <dialog id="skate-dialog" aria-labelledby="skate-title">
+    <div class="shop-heading">
       <div>
-        <b>Honey Skate</b>
-        <small>Saltá obstáculos y recogé polvo de estrellas.</small>
+        <div class="eyebrow">UNA AVENTURA SOBRE RUEDAS</div>
+        <h2 id="skate-title">Honey Skate</h2>
       </div>
-    </button>
-  </div>
-</dialog>
 
-<!-- Honey Skate -->
-<dialog id="skate-dialog" class="skate-dialog" aria-labelledby="skate-title">
-  <div class="skate-header">
+      <form method="dialog">
+        <button class="dialog-close" aria-label="Cerrar skate">✕</button>
+      </form>
+    </div>
+
+    <div class="skate-scoreboard">
+      <span>Recorrido: <b id="skate-distance">0</b> m</span>
+      <span>✦ <b id="skate-stars">0</b></span>
+      <span>Récord: <b id="skate-record">0</b> m</span>
+    </div>
+
+    <div class="skate-stage">
+      <canvas
+        id="skate-canvas"
+        tabindex="0"
+        aria-label="Tocá, presioná espacio o flecha arriba para saltar."
+      ></canvas>
+
+      <div id="skate-overlay" class="skate-overlay">
+        <div class="skate-card">
+          <span class="skate-card-icon" aria-hidden="true">🛹</span>
+          <h3 id="skate-message">¡A rodar!</h3>
+          <p id="skate-result">Esquivá obstáculos y recogé estrellas.</p>
+          <button type="button" id="skate-start">Empezar</button>
+        </div>
+      </div>
+    </div>
+
+    <p class="skate-help">
+      Tocá para saltar · Espacio o ↑ en computadora · Cada estrella vale 2 ✦
+    </p>
+  </dialog> 
+  <dialog id="appearance-dialog" aria-labelledby="appearance-title">
+  <form method="dialog" class="appearance-heading">
     <div>
-      <div class="eyebrow">UNA AVENTURA SOBRE RUEDAS</div>
-      <h2 id="skate-title">Honey Skate</h2>
+      <small>UN TOQUE PERSONAL</small>
+      <h2 id="appearance-title">Los colores de tu dragón</h2>
     </div>
 
-    <form method="dialog" class="close-form">
-      <button
-        type="submit"
-        class="dialog-close"
-        aria-label="Cerrar patineta"
-      >✕</button>
-    </form>
-  </div>
+    <button
+      type="submit"
+      class="appearance-close"
+      aria-label="Cerrar personalización"
+    >×</button>
+  </form>
 
-  <div class="skate-scoreboard">
-    <span>Recorrido: <b id="skate-distance">0</b> m</span>
-    <span>✦ <b id="skate-stars">0</b></span>
-    <span>Récord: <b id="skate-record">0</b> m</span>
-  </div>
+  <p>Elegí un color. Se guarda al seleccionarlo.</p>
 
-  <div class="skate-stage">
-    <canvas
-      id="skate-canvas"
-      tabindex="0"
-      aria-label="Honey en patineta. Tocá, presioná espacio o flecha arriba para saltar."
-    ></canvas>
+  <div
+    id="appearance-colors"
+    class="appearance-colors"
+    role="group"
+    aria-label="Colores disponibles"
+  ></div>
 
-    <div id="skate-overlay" class="skate-overlay">
-      <div class="skate-card">
-        <span class="skate-card-icon" aria-hidden="true">🛹</span>
-        <h3 id="skate-message">¡A rodar!</h3>
-        <p id="skate-result">
-          Tocá la pista para saltar. Esquivá obstáculos y recogé estrellas.
-        </p>
-        <button type="button" id="skate-start">Empezar</button>
-      </div>
-    </div>
-  </div>
-
-  <p class="skate-help">
-    Tocá para saltar · En computadora: espacio o ↑ · Cada estrella vale 2 ✦
-  </p>
+  <p id="appearance-current" role="status"></p>
 </dialog>
 
   <script src="javascript/script.js"></script>
